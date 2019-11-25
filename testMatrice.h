@@ -16,6 +16,8 @@ void init_zero(double tab[], int maxi, int maxj);
 void transpose(double tab[], int N);
 void copy(double src[], double dest[], int line, int col);
 double error(double tab[], double res[], int N);
+void calcul_matriciel_C(double tab[], double xinit[], double xsuiv[], int N);
+void calcul_matriciel_L(double tab[], double xinit[], double xsuiv[], int N);
 void a_bord1(double tab[], int N);
 void a_bord2(double tab[], int N);
 void ding_dong(double tab[], int N);

@@ -12,8 +12,25 @@
 #ifndef H_ITERATIVE
 #define H_ITERATIVE
 
-void iterative(double tab[], int N);
+typedef struct
+{
+    double vectpC[3];
+    double vectpL[3];
+	int valp;
+}Vp;
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include "testMatrice.h"
+#include "display.h"
+
+
+
+Vp calculvectpC(double tab[], Vp vp, int N);
+Vp calculvectpL(double tab[], Vp vp, int N);
 int compare(double xinit[], double xsuiv[], int N);
-void calcul_matriciel(double tab[], double xinit[], double xsuiv[], int N);
+Vp valeur_propre(double tab[], Vp vp, int N);
+Vp iterative(double tab[], Vp vp, int N);
 
 #endif

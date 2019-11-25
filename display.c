@@ -9,8 +9,7 @@
  *
  */
 
-#include <stdio.h>
-#include <stdlib.h>
+#include "display.h"
 
 /**
  * \fn void display_tab(double *tab, int N)
@@ -41,4 +40,17 @@ void display_tab_res(double *tab, int N){
     for(i = 0; i < N; i++){
         printf("%.20f \n",tab[i]);
     }
+}
+
+void display_vp(Vp vp, int N){
+    printf("Vecteur propre colonne :\n");
+    for (int i = 0; i < N; i++){
+        printf("%f\n", vp.vectpC[i]);
+    }
+
+    printf("Vecteur propre ligne : ");
+    for (int i = 0; i < N; i++){
+        printf("%f ", vp.vectpL[i]);
+    }
+    printf("\nValeur propre : %d\n", vp.valp);
 }

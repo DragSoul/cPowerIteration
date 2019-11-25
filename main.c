@@ -16,7 +16,9 @@
 #include "iterative.h"
 
 int main(){
+    Vp vp;
     double tab[100]={1,0,8,0,2,-1,1,0,3};
-    iterative(tab, 3);
+    vp = iterative(tab, vp, 3);
+    display_vp(vp, 3);
     return 0;
 }

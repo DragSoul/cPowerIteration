@@ -12,7 +12,12 @@
 #ifndef H_DISPLAY
 #define H_DISPLAY
 
+#include <stdio.h>
+#include <stdlib.h>
+#include "iterative.h"
+
 void display_tab(double *tab, int N);
 void display_tab_res(double *tab, int N);
+void display_vp(Vp vp, int N);
 
 #endif

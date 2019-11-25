@@ -99,11 +99,29 @@ double error(double tab[], double res[], int N){
  * \param xsuiv matrice colonne résultat.
  * \param N dimention de la matrice carrée.
  */
-void calcul_matriciel(double tab[], double xinit[], double xsuiv[], int N){
+void calcul_matriciel_C(double tab[], double xinit[], double xsuiv[], int N){
     int i, j;
     for (i = 0; i < N; i++){
         for (j = 0; j < N; j++){
             xsuiv[i] += tab[i*N + j] * xinit[j];
+        }
+    }
+}
+
+/**
+ * \fn calcul_matriciel(double tab[], double xinit[], double xsuiv[], int N)
+ * \brief Fonction pour mutliplier une matrice ligne et une matrice carrée.
+ *
+ * \param tab matrice carée.
+ * \param xinit matrice ligne.
+ * \param xsuiv matrice ligne résultat.
+ * \param N dimention de la matrice carrée.
+ */
+void calcul_matriciel_L(double tab[], double xinit[], double xsuiv[], int N){
+    int i, j;
+    for (i = 0; i < N; i++){
+        for (j = 0; j < N; j++){
+            xsuiv[i] += tab[j*N + i] * xinit[j];
         }
     }
 }
