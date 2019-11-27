@@ -14,7 +14,13 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "iterative.h"
+
+typedef struct
+{
+    double vectpC[3];
+    double vectpL[3];
+	int valp;
+}Vp;
 
 void display_tab(double *tab, int N);
 void display_tab_res(double *tab, int N);

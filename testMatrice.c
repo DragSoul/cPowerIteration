@@ -100,9 +100,8 @@ double error(double tab[], double res[], int N){
  * \param N dimention de la matrice carrée.
  */
 void calcul_matriciel_C(double tab[], double xinit[], double xsuiv[], int N){
-    int i, j;
-    for (i = 0; i < N; i++){
-        for (j = 0; j < N; j++){
+    for (int i = 0; i < N; i++){
+        for (int j = 0; j < N; j++){
             xsuiv[i] += tab[i*N + j] * xinit[j];
         }
     }
@@ -118,9 +117,8 @@ void calcul_matriciel_C(double tab[], double xinit[], double xsuiv[], int N){
  * \param N dimention de la matrice carrée.
  */
 void calcul_matriciel_L(double tab[], double xinit[], double xsuiv[], int N){
-    int i, j;
-    for (i = 0; i < N; i++){
-        for (j = 0; j < N; j++){
+    for (int i = 0; i < N; i++){
+        for (int j = 0; j < N; j++){
             xsuiv[i] += tab[j*N + i] * xinit[j];
         }
     }
@@ -133,11 +131,9 @@ void calcul_matriciel_L(double tab[], double xinit[], double xsuiv[], int N){
  * \param tab tableau ou est contenu la matrice.
  * \param N dimention de la matrice.
  */
-void a_bord1(double tab[], int N){
-    
-    int i,j;
-    for(i = 0; i < N; i++){
-        for(j = 0; j < N; j++){
+void a_bord1(double tab[], int N){  
+    for(int i = 0; i < N; i++){
+        for(int j = 0; j < N; j++){
             if(i+1 == j+1){
                 tab[i*N+j] = 1;
             }
@@ -159,10 +155,8 @@ void a_bord1(double tab[], int N){
  * \param N dimention de la matrice.
  */
 void a_bord2(double tab[], int N){
-    
-    int i,j;
-    for(i = 0; i < N; i++){
-        for(j = 0; j < N; j++){
+    for(int i = 0; i < N; i++){
+        for(int j = 0; j < N; j++){
             if(i+1 == j+1){
                 tab[i*N+j] = 1;
             }
@@ -171,7 +165,6 @@ void a_bord2(double tab[], int N){
                     tab[i*N+j] = pow(2, N-(j+1));
                     tab[j*N+N-1] = pow(2, N-(j+1));
                 }
-                
             }  
         }
     }
@@ -185,9 +178,8 @@ void a_bord2(double tab[], int N){
  * \param N dimention de la matrice.
  */
 void ding_dong(double tab[], int N){
-    int i,j;
-    for(i = 0; i < N; i++){
-        for(j = 0; j < N; j++){
+    for(int i = 0; i < N; i++){
+        for(int j = 0; j < N; j++){
             tab[i*N+j] = 1.0/(2*(N-(i+1)-(j+1)+1.5));
         }
     }
@@ -201,9 +193,8 @@ void ding_dong(double tab[], int N){
  * \param N dimention de la matrice.
  */
 void franc(double tab[], int N){
-    int i,j;
-    for(i = 0; i < N; i++){
-        for(j = 0; j < N; j++){
+    for(int i = 0; i < N; i++){
+        for(int j = 0; j < N; j++){
             if(i >= j+2){
                 tab[i*N+j] = 0;
             }
@@ -222,9 +213,8 @@ void franc(double tab[], int N){
  * \param N dimention de la matrice.
  */
 void hilbertPlus(double tab[], int N, int plus){
-    int i,j;
-    for(i = 0; i < N; i++){
-        for(j = 0; j < N; j++){
+    for(int i = 0; i < N; i++){
+        for(int j = 0; j < N; j++){
             tab[i*N+j] = 1.0/((i+1)+(j+1)+plus);
         }
     }
@@ -257,10 +247,9 @@ void hilbert2(double tab[], int N){
  * \param N dimention de la matrice.
  */
 void kms(double tab[], int N){
-    int i,j;
     double p = 0.5;
-    for(i = 0; i < N; i++){
-        for(j = 0; j < N; j++){
+    for(int i = 0; i < N; i++){
+        for(int j = 0; j < N; j++){
             tab[i*N+j] = pow(p, fabs(i-j));
         }
     }
@@ -273,10 +262,9 @@ void kms(double tab[], int N){
  * \param N dimention de la matrice.
  */
 void lehmer(double tab[], int N){
-    int i,j;
     double p = 0.5;
-    for(i = 0; i < N; i++){
-        for(j = 0; j < N; j++){
+    for(int i = 0; i < N; i++){
+        for(int j = 0; j < N; j++){
             if(i <= j){
                 tab[i*N+j] = (i+1.0)/(j+1.0);
             }
@@ -294,10 +282,9 @@ void lehmer(double tab[], int N){
  * \param N dimention de la matrice.
  */
 void lotkin(double tab[], int N){
-    int i,j;
     double p = 0.5;
-    for(i = 0; i < N; i++){
-        for(j = 0; j < N; j++){
+    for(int i = 0; i < N; i++){
+        for(int j = 0; j < N; j++){
             if(i == 0){
                 tab[i*N+j] = 1;
             }
@@ -315,10 +302,9 @@ void lotkin(double tab[], int N){
  * \param N dimention de la matrice.
  */
 void moler(double tab[], int N){
-    int i,j;
     double p = 0.5;
-    for(i = 0; i < N; i++){
-        for(j = 0; j < N; j++){
+    for(int i = 0; i < N; i++){
+        for(int j = 0; j < N; j++){
             if(i == j){
                 tab[i*N+j] = i+1;
             }
@@ -337,9 +323,8 @@ void moler(double tab[], int N){
  * \param N dimention de la matrice.
  */
 void matrice_creuse(double tab[], int N, int pourcent){
-    int i,j;
-    for(i = 0; i < N; i++){
-        for(j = 0; j < N; j++){
+    for(int i = 0; i < N; i++){
+        for(int j = 0; j < N; j++){
             if(rand()%100+1 <= pourcent){
                 tab[i*N+j] = 0;
             }
@@ -358,9 +343,8 @@ void matrice_creuse(double tab[], int N, int pourcent){
  * \param N dimention de la matrice.
  */
 void matrice_sym_pos(double tab[], int N){
-    int i,j;
-    for(i = 0; i < N; i++){
-        for(j = 0; j < N; j++){
+    for(int i = 0; i < N; i++){
+        for(int j = 0; j < N; j++){
             if(i == j){
                 tab[i*N+j] = N;
             }
@@ -371,7 +355,4 @@ void matrice_sym_pos(double tab[], int N){
         }
     }
 }
-
-
-
 

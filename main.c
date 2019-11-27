@@ -14,11 +14,24 @@
 #include "display.h"
 #include "testMatrice.h"
 #include "iterative.h"
+#include "deflation.h"
+
+#define N 3
 
 int main(){
-    Vp vp;
+    int i = 0;
     double tab[100]={1,0,8,0,2,-1,1,0,3};
-    vp = iterative(tab, vp, 3);
-    display_vp(vp, 3);
+    Vp tabvp[10];
+
+    printf("matrice A :\n");
+    display_tab(tab, N);
+
+    tabvp[i] = iterative(tab, tabvp[i], N);
+    display_vp(tabvp[i], N);
+
+    deflate(tab, tabvp[i], N);
+    printf("\nmatrice B (déflation de A):\n");
+    display_tab(tab, N);
+    
     return 0;
 }

@@ -12,12 +12,7 @@
 #ifndef H_ITERATIVE
 #define H_ITERATIVE
 
-typedef struct
-{
-    double vectpC[3];
-    double vectpL[3];
-	int valp;
-}Vp;
+
 
 #include <stdio.h>
 #include <stdlib.h>

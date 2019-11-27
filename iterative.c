@@ -14,19 +14,24 @@
 //calcul du vecteur propre colonne (méthode dans l'énoncé du tp3)
 Vp calculvectpC(double tab[], Vp vp, int N){
     double xinit[3] = {1,1,1}, xsuiv[3];
-    int i, comp = 1;
+    int comp = 1, compteur;
     calcul_matriciel_C(tab, xinit, xsuiv, N);
-    for (i = 0; i < N; i++){
+    for (int i = 0; i < N; i++){
             xsuiv[i] /= xsuiv[N-1];
     }
     comp = compare(xinit, xsuiv, N);
     while(comp){
         copy(xsuiv, xinit, 3, 1);
         calcul_matriciel_C(tab, xinit, xsuiv, N);
-        for (i = 0; i < N; i++){
+        for (int i = 0; i < N; i++){
             xsuiv[i] /= xsuiv[N-1];
         }
-        comp = compare(xinit, xsuiv, N);  
+        comp = compare(xinit, xsuiv, N);
+        if(compteur == 100){
+            printf("100 itérations tentée. Peut être impossible");
+            exit(1);
+        }
+        compteur++;
     }
     copy(xsuiv, vp.vectpC, N, 1);
     return vp;
@@ -35,16 +40,16 @@ Vp calculvectpC(double tab[], Vp vp, int N){
 //calcul le vecteur propre ligne de la même façon qu'on calcule le vecteur propre colonne.
 Vp calculvectpL(double tab[], Vp vp, int N){
     double xinit[3] = {1,1,1}, xsuiv[3];
-    int i, comp = 1;
+    int comp = 1;
     calcul_matriciel_L(tab, xinit, xsuiv, N);
-    for (i = 0; i < N; i++){
+    for (int i = 0; i < N; i++){
             xsuiv[i] /= xsuiv[N-1];
     }
     comp = compare(xinit, xsuiv, N);
     while(comp){
         copy(xsuiv, xinit, 3, 1);
         calcul_matriciel_L(tab, xinit, xsuiv, N);
-        for (i = 0; i < N; i++){
+        for (int i = 0; i < N; i++){
             xsuiv[i] /= xsuiv[N-1];
         }
         comp = compare(xinit, xsuiv, N);  
@@ -55,9 +60,8 @@ Vp calculvectpL(double tab[], Vp vp, int N){
 
 //méthode de comparaison. Sert de test d'arrêt aux fonctions de calcul de vecteur propre
 int compare(double xinit[], double xsuiv[], int N){
-    int i;
     double rapport;
-    for(i = 0; i < N; i++){
+    for(int i = 0; i < N; i++){
         rapport = 1 - xsuiv[i] / xinit[i];
         if(sqrt(pow(rapport, 2)) > 0.00001){
             return 1;
