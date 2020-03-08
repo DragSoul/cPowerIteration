@@ -1,2 +1,2 @@
 # cPowerIteration
-calcule valeur propre avec la méthode des puissance
+calcule valeur propre avec la méthode des puissances
